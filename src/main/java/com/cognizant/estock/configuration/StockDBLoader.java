@@ -28,6 +28,7 @@ public class StockDBLoader implements CommandLineRunner {
         Stock stock3 = new Stock("CTSH", 65.65);
         Stock stock4 = new Stock("AMZ", 201.10);
 
+
         stockService.add(stock1);
         stockService.add(stock2);
         stockService.add(stock3);

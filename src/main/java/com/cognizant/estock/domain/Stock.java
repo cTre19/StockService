@@ -7,10 +7,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+@Data
 @Builder
-@Getter
-@Setter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -18,10 +16,10 @@ import java.util.Date;
 public class Stock {
 
 //    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @NotNull
-    @Column(updatable = false)
-    private Long stockId;
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+//    @NotNull
+////    @Column(updatable = false)
+//    private Long stockId = 0L;
 
     @Id
     @NotNull
@@ -39,6 +37,6 @@ public class Stock {
     public Stock(String companyCode, double price) {
         this.companyCode = companyCode.toLowerCase();
         this.price = price;
-        this.stockId = 0l;
+//        this.stockId++;
     }
 }

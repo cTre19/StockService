@@ -1,19 +1,14 @@
 package com.cognizant.estock.domain;
 
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.Data;
 
 import java.io.Serializable;
 
-@EqualsAndHashCode
-@NoArgsConstructor
+@Data
 public class StockId implements Serializable {
 
     private String companyCode;
     private double price;
+//    private Long stockId;
 
-    public StockId(String companyCode, double price) {
-        this.companyCode = companyCode;
-        this.price = price;
-    }
 }

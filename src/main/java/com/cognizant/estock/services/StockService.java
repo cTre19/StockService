@@ -2,6 +2,7 @@ package com.cognizant.estock.services;
 
 import com.cognizant.estock.domain.Stock;
 import com.cognizant.estock.repository.StockRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,6 +11,7 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
+@Slf4j
 @Service
 @Transactional
 public class StockService {
@@ -65,5 +67,9 @@ public class StockService {
         Date to = Date.from(instant1);
 
         return stockRepository.calcAvgPriceByCompanyCodeAndCreatedDateBetween(companyCode, from, to);
+    }
+
+    public Iterable<Stock> getAll() {
+        return  stockRepository.findAll();
     }
 }
