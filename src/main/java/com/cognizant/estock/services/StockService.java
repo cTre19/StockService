@@ -1,6 +1,6 @@
 package com.cognizant.estock.services;
 
-import com.cognizant.estock.models.Stock;
+import com.cognizant.estock.domain.Stock;
 import com.cognizant.estock.repository.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +25,7 @@ public class StockService {
         Date from = Date.from(instant);
         Date to = Date.from(instant1);
 
-        return stockRepository.findByDateBetweenAndCompanyCode(from, to, companyCode.toLowerCase());
+        return stockRepository.findByCreatedDateBetweenAndCompanyCode(from, to, companyCode.toLowerCase());
     }
 
     public void deleteStocksByCompanyCode(String companyCode) {
@@ -37,7 +37,7 @@ public class StockService {
     }
 
     public Stock getLatestStock(String companyCode) {
-        return stockRepository.findFirstByCompanyCodeOrderByDateDesc(companyCode.toLowerCase());
+        return stockRepository.findFirstByCompanyCodeOrderByCreatedDateDesc(companyCode.toLowerCase());
     }
 
     public double getMaxPrice(String companyCode, String startDate, String endDate) {
@@ -46,7 +46,7 @@ public class StockService {
         Date from = Date.from(instant);
         Date to = Date.from(instant1);
 
-        return stockRepository.findTopByCompanyCodeAndDateBetweenOrderByPriceDesc(companyCode.toLowerCase(), from, to).getPrice();
+        return stockRepository.findTopByCompanyCodeAndCreatedDateBetweenOrderByPriceDesc(companyCode.toLowerCase(), from, to).getPrice();
     }
 
     public double getMinPrice(String companyCode, String startDate, String endDate) {
@@ -55,6 +55,6 @@ public class StockService {
         Date from = Date.from(instant);
         Date to = Date.from(instant1);
 
-        return stockRepository.findTopByCompanyCodeAndDateBetweenOrderByPriceAsc(companyCode.toLowerCase(), from, to).getPrice();
+        return stockRepository.findTopByCompanyCodeAndCreatedDateBetweenOrderByPriceAsc(companyCode.toLowerCase(), from, to).getPrice();
     }
 }

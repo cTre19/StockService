@@ -1,24 +1,24 @@
 package com.cognizant.estock.repository;
 
-import com.cognizant.estock.models.Stock;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import com.cognizant.estock.domain.Stock;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
 
 @Repository
-public interface StockRepository extends MongoRepository<Stock, String> {
+public interface StockRepository extends CrudRepository<Stock, String> {
 
-    List<Stock> findByDateBetweenAndCompanyCode(Date to, Date from, String companyCode);
+    List<Stock> findByCreatedDateBetweenAndCompanyCode(Date to, Date from, String companyCode);
 
     void deleteStocksByCompanyCode(String companyCode);
 
     List<Stock> findAllByCompanyCode(String companyCode);
 
-    Stock findFirstByCompanyCodeOrderByDateDesc(String companyCode);
+    Stock findFirstByCompanyCodeOrderByCreatedDateDesc(String companyCode);
 
-    Stock findTopByCompanyCodeAndDateBetweenOrderByPriceDesc(String companyCode, Date from, Date to);
+    Stock findTopByCompanyCodeAndCreatedDateBetweenOrderByPriceDesc(String companyCode, Date from, Date to);
 
-    Stock findTopByCompanyCodeAndDateBetweenOrderByPriceAsc(String companyCode, Date from, Date to);
+    Stock findTopByCompanyCodeAndCreatedDateBetweenOrderByPriceAsc(String companyCode, Date from, Date to);
 }

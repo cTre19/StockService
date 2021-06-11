@@ -1,0 +1,23 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<!DOCTYPE hibernate-configuration PUBLIC-->
+<!--        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"-->
+<!--        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">-->
+
+<!--<hibernate-configuration>-->
+<!--    <session-factory>-->
+<!--        &lt;!&ndash; Database connection settings &ndash;&gt;-->
+<!--        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>-->
+<!--        <property name="connection.url">jdbc:mysql://localhost:3306/stock?serverTimezone=UTC</property>-->
+<!--        <property name="connection.username">username</property>-->
+<!--        <property name="connection.password">password</property>-->
+
+<!--        &lt;!&ndash; SQL dialect &ndash;&gt;-->
+<!--        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>-->
+
+<!--        &lt;!&ndash; Validate the database schema on startup &ndash;&gt;-->
+<!--        <property name="hbm2ddl.auto">validate</property>-->
+
+<!--        &lt;!&ndash; Names the annotated entity class &ndash;&gt;-->
+<!--        <mapping class="Stock"/>-->
+<!--    </session-factory>-->
+<!--</hibernate-configuration>-->

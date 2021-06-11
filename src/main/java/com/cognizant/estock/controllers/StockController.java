@@ -1,7 +1,7 @@
 package com.cognizant.estock.controllers;
 
 import com.cognizant.estock.models.StatisticsDTO;
-import com.cognizant.estock.models.Stock;
+import com.cognizant.estock.domain.Stock;
 import com.cognizant.estock.services.StockService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
