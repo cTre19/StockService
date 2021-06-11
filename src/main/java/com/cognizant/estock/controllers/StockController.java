@@ -29,7 +29,6 @@ public class StockController {
         headers.add("Location", "/api/v1.0/market/stock/" + savedStock.getCompanyCode());
 
         return new ResponseEntity(headers, HttpStatus.CREATED);
-
     }
 
     @GetMapping("/get/{companycode}/{startdate}/{enddate}")
@@ -40,7 +39,6 @@ public class StockController {
         List<Stock> response = stockService.getStocksByDateRangeAndCompanyCode(code, startDate, endDate);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
-
     }
 
     @GetMapping("/getstats/{companycode}/{startdate}/{enddate}")

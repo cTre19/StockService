@@ -18,7 +18,7 @@ import java.util.Date;
 public class Stock {
 
 //    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @NotNull
     @Column(updatable = false)
     private Long stockId;
