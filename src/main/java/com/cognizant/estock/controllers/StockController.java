@@ -49,7 +49,7 @@ public class StockController {
                                                   @PathVariable("enddate") String endDate) {
         double max = stockService.getMaxPrice(code, startDate, endDate);
         double min = stockService.getMinPrice(code, startDate, endDate);
-        double avg = (max + min) / 2.0; // fix this later
+        double avg = stockService.getAvgPrice(code, startDate, endDate);
         StatisticsDTO statsDTO = new StatisticsDTO(min, max, avg);
 
         return new ResponseEntity<>(statsDTO, HttpStatus.OK);

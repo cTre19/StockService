@@ -27,27 +27,13 @@ public class StockDBLoader implements CommandLineRunner {
         Stock stock2 = new Stock("AMZ", 100.12);
         Stock stock3 = new Stock("CTSH", 65.65);
         Stock stock4 = new Stock("AMZ", 201.10);
-//        Stock stock1 = Stock.builder()
-//                .companyCode("CTSH")
-//                .price(55.00)
-//                .build();
-//        Stock stock2 = Stock.builder()
-//                .companyCode("AMZ")
-//                .price(100.10)
-//                .build();
-//        Stock stock3 = Stock.builder()
-//                .companyCode("CTSH")
-//                .price(65.77)
-//                .build();
-//        Stock stock4 = Stock.builder()
-//                .companyCode("AMZ")
-//                .price(210.69)
-//                .build();
 
         stockService.add(stock1);
         stockService.add(stock2);
         stockService.add(stock3);
         stockService.add(stock4);
+        System.out.println("Avg price: " + stockService.getAvgPrice("ctsh",
+                "2021-06-04T04:24:26.463Z", "2021-07-04T04:24:26.463Z"));
     }
 
 }

@@ -17,6 +17,7 @@ import java.util.Date;
 @IdClass(StockId.class)
 public class Stock {
 
+//    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
     @Column(updatable = false)
