@@ -13,7 +13,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@CrossOrigin
+@CrossOrigin("*")
 @RequestMapping("/api/v1.0/market/stock")
 public class StockController {
 
