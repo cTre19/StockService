@@ -1,10 +1,17 @@
 package com.cognizant.estock.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.GenerationType;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
@@ -12,31 +19,30 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@IdClass(StockId.class)
-public class Stock {
+//@IdClass(StockId.class)
+public class Stock implements Serializable {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-//    @NotNull
-////    @Column(updatable = false)
-//    private Long stockId = 0L;
+    private static final long serialVersionUID = -3997944153009689649L;
 
     @Id
-    @NotNull
-    @Column(unique = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(updatable = false)
+    private Long stockId = 0L;
+
+//    @Id
+    @Column(nullable = false, unique = false)
     private String companyCode;
 
     @Column(updatable = false)
     @CreationTimestamp
     private Date createdDate;
 
-    @Id
-    @NotNull
+//    @Id
+    @Column(nullable = false)
     private double price;
 
     public Stock(String companyCode, double price) {
         this.companyCode = companyCode.toLowerCase();
         this.price = price;
-//        this.stockId++;
     }
 }

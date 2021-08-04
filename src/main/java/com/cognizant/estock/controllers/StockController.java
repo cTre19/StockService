@@ -1,7 +1,6 @@
 package com.cognizant.estock.controllers;
 
 import com.cognizant.estock.domain.Stock;
-import com.cognizant.estock.models.StatisticsDTO;
 import com.cognizant.estock.services.StockService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -52,21 +51,21 @@ public class StockController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping("/getstats/{companycode}/{startdate}/{enddate}")
-    public ResponseEntity<StatisticsDTO> getStats(@PathVariable("companycode") String code,
-                                                  @PathVariable("startdate") String startDate,
-                                                  @PathVariable("enddate") String endDate) {
-        log.info("Fetching stats for company " + code + " from " + " to " + endDate);
-        double max = stockService.getMaxPrice(code, startDate, endDate);
-        log.info("Max Price: " + max);
-        double min = stockService.getMinPrice(code, startDate, endDate);
-        log.info("Min Price: " + min);
-        double avg = stockService.getAvgPrice(code, startDate, endDate);
-        log.info("Avg Price: " + avg);
-        StatisticsDTO statsDTO = new StatisticsDTO(min, max, avg);
-
-        return new ResponseEntity<>(statsDTO, HttpStatus.OK);
-    }
+//    @GetMapping("/getstats/{companycode}/{startdate}/{enddate}")
+//    public ResponseEntity<StatisticsDTO> getStats(@PathVariable("companycode") String code,
+//                                                  @PathVariable("startdate") String startDate,
+//                                                  @PathVariable("enddate") String endDate) {
+//        log.info("Fetching stats for company " + code + " from " + " to " + endDate);
+//        double max = stockService.getMaxPrice(code, startDate, endDate);
+//        log.info("Max Price: " + max);
+//        double min = stockService.getMinPrice(code, startDate, endDate);
+//        log.info("Min Price: " + min);
+//        double avg = stockService.getAvgPrice(code, startDate, endDate);
+//        log.info("Avg Price: " + avg);
+//        StatisticsDTO statsDTO = new StatisticsDTO(min, max, avg);
+//
+//        return new ResponseEntity<>(statsDTO, HttpStatus.OK);
+//    }
 
     @DeleteMapping("/delete/{companycode}")
     public ResponseEntity deleteStocksByCompanyCode(@PathVariable("companycode") String companyCode) {

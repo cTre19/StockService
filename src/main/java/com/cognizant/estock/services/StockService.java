@@ -60,14 +60,14 @@ public class StockService {
         return stockRepository.findTopByCompanyCodeAndCreatedDateBetweenOrderByPriceAsc(companyCode.toLowerCase(), from, to).getPrice();
     }
 
-    public double getAvgPrice(String companyCode, String startDate, String endDate) {
-        Instant instant = Instant.parse(startDate);
-        Instant instant1 = Instant.parse(endDate);
-        Date from = Date.from(instant);
-        Date to = Date.from(instant1);
-
-        return stockRepository.calcAvgPriceByCompanyCodeAndCreatedDateBetween(companyCode, from, to);
-    }
+//    public double getAvgPrice(String companyCode, String startDate, String endDate) {
+//        Instant instant = Instant.parse(startDate);
+//        Instant instant1 = Instant.parse(endDate);
+//        Date from = Date.from(instant);
+//        Date to = Date.from(instant1);
+//
+//        return stockRepository.calcAvgPriceByCompanyCodeAndCreatedDateBetween(companyCode, from, to);
+//    }
 
     public Iterable<Stock> getAll() {
         return  stockRepository.findAll();
