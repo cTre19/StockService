@@ -2,4 +2,4 @@
 # DROP USER IF EXISTS `user1`@`%`;
 CREATE DATABASE IF NOT EXISTS stock_db;
 CREATE USER IF NOT EXISTS `user1`@`%` IDENTIFIED BY 'password';
-GRANT ALL ON stock_db.* TO `user1`@`%`;
+# GRANT ALL ON stock_db.* TO `user1`@`%`;
