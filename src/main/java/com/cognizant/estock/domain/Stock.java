@@ -1,25 +1,16 @@
 package com.cognizant.estock.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-//@IdClass(StockId.class)
+@NoArgsConstructor
 public class Stock implements Serializable {
 
     private static final long serialVersionUID = -3997944153009689649L;
@@ -29,7 +20,6 @@ public class Stock implements Serializable {
     @Column(updatable = false)
     private Long stockId = 0L;
 
-//    @Id
     @Column(nullable = false, unique = false)
     private String companyCode;
 
@@ -37,12 +27,43 @@ public class Stock implements Serializable {
     @CreationTimestamp
     private Date createdDate;
 
-//    @Id
     @Column(nullable = false)
     private double price;
 
     public Stock(String companyCode, double price) {
         this.companyCode = companyCode.toLowerCase();
+        this.price = price;
+    }
+
+    public Long getStockId() {
+        return stockId;
+    }
+
+    public void setStockId(Long stockId) {
+        this.stockId = stockId;
+    }
+
+    public String getCompanyCode() {
+        return companyCode;
+    }
+
+    public void setCompanyCode(String companyCode) {
+        this.companyCode = companyCode;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
         this.price = price;
     }
 }
